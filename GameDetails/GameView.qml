@@ -14,12 +14,12 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-import QtQuick 2.8
-import QtQuick.Layouts 1.11
-import QtGraphicalEffects 1.0
+import QtQuick
+import QtQuick.Layouts
+import Qt5Compat.GraphicalEffects
 import SortFilterProxyModel 0.2
-import QtQml.Models 2.10
-import QtMultimedia 5.9
+import QtQml.Models
+import QtMultimedia
 import "../Global"
 import "../GridView"
 import "../Lists"
@@ -28,7 +28,7 @@ import "../utils.js" as Utils
 FocusScope {
 id: root
 
-    property var game: api.allGames.get(0)
+    property var game: currentGame
     property string favIcon: game && game.favorite ? "../assets/images/icon_unheart.svg" : "../assets/images/icon_heart.svg"
     property string collectionName: game ? game.collections.get(0).name : ""
     property string collectionShortName: game ? game.collections.get(0).shortName : ""

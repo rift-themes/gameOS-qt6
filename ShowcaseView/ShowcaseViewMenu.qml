@@ -14,12 +14,12 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-import QtQuick 2.3
-import QtQuick.Layouts 1.11
+import QtQuick
+import QtQuick.Layouts
 import SortFilterProxyModel 0.2
-import QtGraphicalEffects 1.0
-import QtMultimedia 5.9
-import QtQml.Models 2.10
+import Qt5Compat.GraphicalEffects
+import QtMultimedia
+import QtQml.Models
 import "../Global"
 import "../GridView"
 import "../Lists"

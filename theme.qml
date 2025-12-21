@@ -14,10 +14,10 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-import QtQuick 2.0
-import QtQuick.Layouts 1.11
+import QtQuick
+import QtQuick.Layouts
 import SortFilterProxyModel 0.2
-import QtMultimedia 5.9
+import QtMultimedia
 import "VerticalList"
 import "GridView"
 import "Global"

@@ -14,8 +14,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-import QtQuick 2.8
-import QtGraphicalEffects 1.12
+import QtQuick
+import Qt5Compat.GraphicalEffects
 
 Item {
 id: root
