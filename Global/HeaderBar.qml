@@ -55,7 +55,7 @@ id: root
                 left: parent.left; leftMargin: globalMargin
             }
             fillMode: Image.PreserveAspectFit
-            source: "../assets/images/logospng/" + Utils.processPlatformName(currentCollection.shortName) + ".png"
+            source: currentCollection?.assets?.logoWhite ?? currentCollection?.assets?.logo ?? ""
             sourceSize: Qt.size(parent.width, parent.height)
             smooth: true
             visible: false
