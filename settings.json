@@ -1,0 +1,147 @@
+{
+  "settings": [
+    {
+      "key": "platformView",
+      "label": "Platform View",
+      "type": "select",
+      "options": [
+        { "value": "Grid", "label": "Grid" },
+        { "value": "List", "label": "List" }
+      ],
+      "default": "Grid"
+    },
+    {
+      "key": "gridThumbnail",
+      "label": "Grid Thumbnail",
+      "type": "select",
+      "options": [
+        { "value": "Dynamic Wide", "label": "Dynamic Wide" },
+        { "value": "Dynamic Tall", "label": "Dynamic Tall" },
+        { "value": "Wide", "label": "Wide" },
+        { "value": "Tall", "label": "Tall" }
+      ],
+      "default": "Dynamic Wide"
+    },
+    {
+      "key": "gridColumns",
+      "label": "Number of Columns",
+      "type": "select",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" },
+        { "value": "5", "label": "5" }
+      ],
+      "default": "3"
+    },
+    {
+      "key": "gameBackground",
+      "label": "Game Background",
+      "type": "select",
+      "options": [
+        { "value": "Screenshot", "label": "Screenshot" },
+        { "value": "Fanart", "label": "Fanart" }
+      ],
+      "default": "Screenshot"
+    },
+    {
+      "key": "gameLogo",
+      "label": "Game Logo",
+      "type": "select",
+      "options": [
+        { "value": "Show", "label": "Show" },
+        { "value": "Hide", "label": "Hide" }
+      ],
+      "default": "Show"
+    },
+    {
+      "key": "randomizeBackground",
+      "label": "Randomize Background",
+      "type": "toggle",
+      "default": false
+    },
+    {
+      "key": "blurBackground",
+      "label": "Blur Background",
+      "type": "toggle",
+      "default": false
+    },
+    {
+      "key": "videoPreview",
+      "label": "Video Preview",
+      "type": "toggle",
+      "default": true
+    },
+    {
+      "key": "allowVideoThumbnails",
+      "label": "Allow Video Thumbnails",
+      "type": "toggle",
+      "default": true
+    },
+    {
+      "key": "videoThumbnailAudio",
+      "label": "Video Thumbnail Audio",
+      "type": "toggle",
+      "default": false
+    },
+    {
+      "key": "hideLogo",
+      "label": "Hide Logo When Video Plays",
+      "type": "toggle",
+      "default": false
+    },
+    {
+      "key": "hideButtonHelp",
+      "label": "Hide Button Help",
+      "type": "toggle",
+      "default": false
+    },
+    {
+      "key": "mouseHover",
+      "label": "Enable Mouse Hover",
+      "type": "toggle",
+      "default": false
+    },
+    {
+      "key": "alwaysShowTitles",
+      "label": "Always Show Titles",
+      "type": "toggle",
+      "default": false
+    },
+    {
+      "key": "animateHighlight",
+      "label": "Animate Highlight",
+      "type": "toggle",
+      "default": false
+    },
+    {
+      "key": "videoPreviewAudio",
+      "label": "Video Preview Audio",
+      "type": "toggle",
+      "default": false
+    },
+    {
+      "key": "showScanlines",
+      "label": "Show Scanlines",
+      "type": "toggle",
+      "default": true
+    },
+    {
+      "key": "defaultToFullDetails",
+      "label": "Default to Full Details",
+      "type": "toggle",
+      "default": false
+    },
+    {
+      "key": "showcaseColumns",
+      "label": "Number of Games Showcased",
+      "type": "select",
+      "options": [
+        { "value": "10", "label": "10" },
+        { "value": "15", "label": "15" },
+        { "value": "20", "label": "20" }
+      ],
+      "default": "15"
+    }
+  ]
+}
