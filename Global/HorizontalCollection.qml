@@ -83,6 +83,15 @@ id: root
         currentIndex: focus ? savedIndex : -1
         Component.onCompleted: positionViewAtIndex(savedIndex, ListView.Visible)
 
+        // Keep Rift's SELECT-menu context game in sync with the highlighted game (only the
+        // focused row updates it, so the cursor reflects what the user is actually pointing at).
+        onCurrentIndexChanged: {
+            if (focus && currentIndex >= 0 && search && search.currentGame) {
+                var g = search.currentGame(currentIndex);
+                if (g) currentGame = g;
+            }
+        }
+
         model: search.games ? search.games : api.allGames
         delegate: DynamicGridItem {
             selected: ListView.isCurrentItem && collectionList.focus

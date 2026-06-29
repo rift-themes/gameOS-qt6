@@ -67,8 +67,14 @@ id: root
 
         currentIndex: currentGameIndex
         onCurrentIndexChanged: {
-            if (currentIndex != -1)
+            if (currentIndex != -1) {
                 currentGameIndex = currentIndex;
+                // Keep Rift's SELECT-menu context game in sync with the highlighted game
+                if (model && model.get && currentIndex < model.count) {
+                    var g = model.get(currentIndex);
+                    if (g) currentGame = g;
+                }
+            }
         }
 
         focus: true

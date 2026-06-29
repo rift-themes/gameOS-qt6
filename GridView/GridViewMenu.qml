@@ -233,6 +233,14 @@ id: root
                 positionViewAtIndex(currentIndex, ListView.Visible);
             }
 
+            // Keep Rift's SELECT-menu context game in sync with the highlighted game
+            onCurrentIndexChanged: {
+                if (currentIndex >= 0) {
+                    var g = list.currentGame(currentIndex);
+                    if (g) currentGame = g;
+                }
+            }
+
             populate: Transition {
                 NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 400 }
             }

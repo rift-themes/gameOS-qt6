@@ -29,8 +29,13 @@ import "Settings"
 FocusScope {
 id: root
 
-    // Hide the global Rift footer - this theme has its own navigation
-    property bool footerVisible: false
+    // Show Rift's global footer, styled to match the gameOS palette
+    property bool footerVisible: true
+    property color footerBackgroundColor: theme.main
+    property color footerTextColor: theme.text
+    property color footerButtonColor: theme.accent
+    property color footerButtonTextColor: "#ffffff"
+    property real footerBackgroundOpacity: 1.0
 
     // Menu customization (SELECT, START, Settings) - gameOS dark style
     property color menuBackgroundColor: "#1a1a2e"
@@ -503,7 +508,8 @@ id: root
             left: parent.left; right: parent.right; rightMargin: globalMargin
             bottom: parent.bottom
         }
-        visible: settings.HideButtonHelp === "No"
+        // Footer/help bar removed - Rift handles navigation hints globally
+        visible: false
     }
 
     ///////////////////

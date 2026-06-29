@@ -225,58 +225,7 @@ id: root
             visible: !ftueContainer.visible
         }
 
-        Rectangle {
-        id: settingsbutton
-
-            width: height
-            height: vpx(40)
-            anchors { right: parent.right; rightMargin: globalMargin }
-            color: focus ? theme.accent : "white"
-            radius: height/2
-            opacity: focus ? 1 : 0.2
-            anchors.verticalCenter: parent.verticalCenter
-            onFocusChanged: {
-                sfxNav.play()
-                if (focus)
-                    mainList.currentIndex = -1;
-                else
-                    mainList.currentIndex = 0;
-            }
-
-            Keys.onDownPressed: mainList.focus = true;
-            Keys.onPressed: {
-                // Accept
-                if (api.keys.isAccept(event) && !event.isAutoRepeat) {
-                    event.accepted = true;
-                    settingsScreen();            
-                }
-                // Back
-                if (api.keys.isCancel(event) && !event.isAutoRepeat) {
-                    event.accepted = true;
-                    mainList.focus = true;
-                }
-            }
-            // Mouse/touch functionality
-            MouseArea {
-                anchors.fill: parent
-                hoverEnabled: settings.MouseHover == "Yes"
-                onEntered: settingsbutton.focus = true;
-                onExited: settingsbutton.focus = false;
-                onClicked: settingsScreen();
-            }
-        }
-
-        Image {
-        id: settingsicon
-
-            width: height
-            height: vpx(24)
-            anchors.centerIn: settingsbutton
-            smooth: true
-            asynchronous: true
-            source: "../assets/images/settingsicon.svg"
-            opacity: root.focus ? 0.8 : 0.5
-        }
+        // Settings button removed - Rift's native Settings menu (START) handles this.
     }
 
     // Using an object model to build the list
@@ -302,7 +251,15 @@ id: root
             keyNavigationWraps: true
             currentIndex: (storedHomePrimaryIndex == 0) ? storedHomeSecondaryIndex : 0
             Component.onCompleted: positionViewAtIndex(currentIndex, ListView.Visible)
-            
+
+            // Keep Rift's SELECT-menu context game in sync with the focused featured game
+            onCurrentIndexChanged: {
+                if (focus && currentIndex >= 0 && featuredCollection && featuredCollection.currentGame) {
+                    var g = featuredCollection.currentGame(currentIndex);
+                    if (g) currentGame = g;
+                }
+            }
+
             model: !ftue ? featuredCollection.games : 0
             delegate: featuredDelegate
 
@@ -389,7 +346,7 @@ id: root
             }
 
             // List specific input
-            Keys.onUpPressed: settingsbutton.focus = true;
+            // (settings button removed - up does nothing from the top row)
             Keys.onLeftPressed: { sfxNav.play(); decrementCurrentIndex() }
             Keys.onRightPressed: { sfxNav.play(); incrementCurrentIndex() }
             Keys.onPressed: {
@@ -696,23 +653,12 @@ id: root
         }
     }
 
-    // Global input handling for the screen
-    Keys.onPressed: {
-        // Settings
-        if (api.keys.isFilters(event) && !event.isAutoRepeat) {
-            event.accepted = true;
-            settingsScreen();
-        }
-    }
+    // Settings access removed - Rift's native menus (SELECT/START) handle settings.
 
     // Helpbar buttons
     ListModel {
         id: gridviewHelpModel
 
-        ListElement {
-            name: "Settings"
-            button: "filters"
-        }
         ListElement {
             name: "Select"
             button: "accept"
