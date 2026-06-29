@@ -81,12 +81,18 @@ id: root
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
 
+            DownloadingSpinner {
+                gameData: root.gameData
+                targetImage: screenshot
+                sourceBinding: function() { return boxArt(root.gameData) }
+            }
+
             Rectangle {
             id: favicon
 
-                anchors { 
-                    right: parent.right; rightMargin: vpx(7); 
-                    top: parent.top; topMargin: vpx(7) 
+                anchors {
+                    right: parent.right; rightMargin: vpx(7);
+                    top: parent.top; topMargin: vpx(7)
                 }
                 width: vpx(20)
                 height: width
@@ -97,7 +103,7 @@ id: root
                     source: "../assets/images/favicon.svg"
                     asynchronous: true
                     anchors.fill: parent
-                    anchors.margins: vpx(4)            
+                    anchors.margins: vpx(4)
                 }
             }
         }

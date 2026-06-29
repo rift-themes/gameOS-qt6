@@ -98,6 +98,16 @@ id: root
             smooth: false
             asynchronous: true
             Behavior on opacity { NumberAnimation { duration: 200 } }
+
+            DownloadingSpinner {
+                gameData: root.gameData
+                targetImage: screenshot
+                sourceBinding: function() {
+                    if (!root.gameData || !root.gameData.assets) return ""
+                    var screens = root.gameData.assets.screenshots
+                    return (screens && screens[0]) || root.gameData.assets.background || ""
+                }
+            }
         }
 
         Image {
